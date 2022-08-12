@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "title": "go to the gym",
+      "date": "1 december at 18:20",
+      "reminder": true,
+      "id": 1
+    },
+    {
+      "title": "rank up to gold",
+      "date": "15 december",
+      "reminder": false,
+      "id": 2
+    },
+    {
+      "title": "learn java",
+      "date": "10 december at 10:30",
+      "reminder": false,
+      "id": 3
+    }
+  ]
+}
