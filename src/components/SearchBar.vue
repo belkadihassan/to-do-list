@@ -1,7 +1,7 @@
 <template>
     <div class="searchbarArea">
         <input @keydown="search" v-model="inputValue" 
-        type="text" class="width-60"
+        type="text" class="searchInput"
         placeholder="search....">
         <i @click="$emit('searchbarClosed')" class="fas fa-times ml-7"></i>
     </div>
@@ -44,15 +44,23 @@ export default {
 </script>
 <style scoped>
     .searchbarArea{
+        width : 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
     input{
-        width : 270px;
+        width : 90%;
         outline: none;
         background: #76777752;
+        border: none;
         padding: 7px 20px;
-        border-radius: 10px;
+        border-radius: px;
+    }
+    input:focus{
+        border-bottom : 2px solid #0D5A5F;
+    }
+    .fas:hover{
+        color: red;
     }
 </style>

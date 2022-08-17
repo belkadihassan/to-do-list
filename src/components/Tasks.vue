@@ -1,12 +1,12 @@
 <template>
-    <div class="containe rounded-tr-xl rounded-br-xl py-2">
+    <div class="containe">
         <div class="tasks-header">
             <h3 v-show="!showSearchbar" class= "font-semibold text-xl br-10">Tasks</h3>
             <SearchBar @searchbarClosed="hideSearchbar()" @searchResult = "searchView" v-show="showSearchbar" :tasks = "tasks"/>
-            <i v-show="!showSearchbar" class="fa-solid fa-magnifying-glass ml-20" @click="searchBar"></i>
+            <i v-show="!showSearchbar" class="fa-solid fa-magnifying-glass" @click="searchBar"></i>
             <button @click="$emit('addTaskShow')"
             v-show="!showSearchbar"
-            class="bg-zinc-900 text-white px-4 py-1 rounded">add task
+            class="addtaskBtn">add task
             </button>
         </div>
         <div class = "tasksContainer">
@@ -65,14 +65,20 @@ export default {
 }
 </script>
 <style scoped>
-
+    .fa-magnifying-glass{
+        margin-left: 100px;
+    }
     .containe{
+        margin :20px 0;
         width : 400px;
         display: flex;
+        padding : 20px 0;
         flex-direction: column;
         align-items: center;
         background: #fff;
+        border-radius : 0 10px 10px 0; 
         border-left : 3px solid #0D5A5F;
+        box-shadow: 1px 1px 4px #e1e1e1;
     }
     .tasks-header{
         width: 100%;
@@ -81,31 +87,40 @@ export default {
         align-items: center;
         padding : 20px 30px;
     }
+    .addtaskBtn{
+        border : none;
+        border-radius :2px;
+        padding : 7px 15px;
+        background-color: rgb(24 24 27);
+        color : #fff;
+    }
     .tasksContainer{
         max-height: 300px;
         width : 90%;
-        padding : px;
+        padding-left : 8px;
         overflow-y: scroll;
         overflow-x: hidden;
     }
-::-webkit-scrollbar {
-  width: 8px;
-}
+
+ /** ---------     scroll style     ---------- */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
 
 /* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius : 5px;
-}
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius : 5px;
+    }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius : 5px;
-}
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius : 5px;
+    }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 </style>

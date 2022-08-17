@@ -1,8 +1,8 @@
 <template>
     <div @dblclick="$emit('toggleRem')" :class = "[task.reminder ? 'reminder' : '' ,
-     'container rounded-tr rounded-br']">
+     'container']">
         <div class="taskBody">
-            <h3 class="title font-semibold">{{task.title}}</h3>
+            <h3 class="title">{{task.title}}</h3>
             <p class="date">{{task.date}}</p>
         </div>
         <div class="icon">
@@ -26,6 +26,9 @@ export default {
 </script>
 <style scoped>
     .icon{
+        color : rgb(24 24 27);
+    }
+    .icon:hover{
         color : red;
     }
     .container{
@@ -47,7 +50,7 @@ export default {
     *{
         font-family: 'Roboto', sans-serif;
     }
-    .container.reminder{
+    .reminder{
         border-left: 4px solid green;
     }
 </style>

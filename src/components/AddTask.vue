@@ -1,11 +1,11 @@
 <template>
-<div class="addTaskContainer bg-white pl-10 rounded-tr-xl rounded-br-xl py-6">
-    <div class="addTaskHeader flex pb-5">
-        <h1 class = "font-semibold">add task</h1>
+<div :class="[this.reminder ? 'greenBorder' : '','addTaskContainer']">
+    <div class="addTaskHeader">
+        <h3>add task</h3>
         <i @click="$emit('hideAddTask')" class="fas fa-times mr-10"></i>
     </div>
     <form @submit="submit" action="">
-        <div class="form-controller flex flex-col">
+        <div class="form-controller">
             <label for="title">task title</label>
             <input type="text" name="title"
             v-model="title"
@@ -13,7 +13,7 @@
             placeholder="">
         </div>
     
-        <div class="form-controller flex flex-col">    
+        <div class="form-controller">    
             <label for="date">Date</label>
             <input type="text" name="date"
              v-model="date"
@@ -22,10 +22,10 @@
              >
         </div>
 
-        <div class="form-controller checkboxReminder flex py-2 px-3">
+        <div class="checkboxReminder">
             <div class="checkbox">
                 <label for="reminder" class="mr-2">Set reminder</label>
-                <input type="checkbox" name="reminder"
+                <input id ="checkbox" type="checkbox" name="reminder"
                 v-model="reminder"
                 >
             </div>
@@ -69,34 +69,65 @@
                 
             }
         },
-        emits : ['addTask' , 'hideAddTask']
+        emits : ['addTask' , 'hideAddTask'],
     }
 </script>
 <style scoped>
     .addTaskContainer{
         width : 400px;
-        border-left: 3px solid #0D5A5F;
-        border-top: 3px solid #0D5A5F;
+        padding: 30px;
+        box-shadow: 1px 1px 4px #e1e1e1;
+        border-radius : 0 10px 10px 0;
+        
     }
     .addTaskHeader{
+        display: flex;
+        padding-bottom: 20px;
         justify-content: space-between;
+    }
+    i:hover{
+        color : red;
     }
     input{
         border : 1px solid #ddd;
     }
     .checkboxReminder{
-        width: 90%;
+        margin: 20px 10px 0 10px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     .inputs{
+        padding: 10px;
+        margin-bottom: 15px;
         background-color: rgb(245, 245, 245);
-        width: 90%;
+        width: 100%;
+        outline: none;
     }
     .saveTaskBtn{
-        border : 1px solid
+        background: none;
+        padding : 7px 15px;
+        border-radius : 2px;
+        border : none;
+        border: #0D5A5F 2px solid;
     }
     .checkbox{
-        align-self: center;
+        display: flex;
+        align-items: center;
+    }
+    .checkbox input{
+        margin-left: 10px;
+    }
+    .form-controller{
+        display: flex;
+        flex-direction: column;
+    }
+    .inputs:focus{
+        border-bottom : 2px solid #0D5A5F;
+        border-spacing: 5px;
+    }
+    .greenBorder{
+        border-left: 5px solid green;
+        border-spacing: 5px;
     }
 </style>

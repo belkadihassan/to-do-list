@@ -9,7 +9,7 @@
     {
       "title": "rank up to gold",
       "date": "15 december",
-      "reminder": false,
+      "reminder": true,
       "id": 2
     },
     {
