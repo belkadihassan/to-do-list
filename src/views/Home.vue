@@ -4,7 +4,7 @@
     @addTask = "addTask"
     @hideAddTask = "addTaskHide"
     />
-    <Tasks class = "tasks pb-4" :tasks = "this.tasks"
+    <Tasks class = "tasks" :tasks = "this.tasks"
     @delete-task="deleteTasks"
     @toggleRem="toggleReminder"
     @addTaskShow = "addTaskShow"
